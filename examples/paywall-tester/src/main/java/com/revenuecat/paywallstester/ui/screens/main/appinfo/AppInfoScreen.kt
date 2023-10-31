@@ -1,6 +1,5 @@
 package com.revenuecat.paywallstester.ui.screens.main.appinfo
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -27,7 +26,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.lifecycle.viewmodel.compose.viewModel
-import com.revenuecat.purchases.ui.debugview.DebugRevenueCatBottomSheet
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
@@ -58,12 +56,12 @@ fun AppInfoScreen(viewModel: AppInfoScreenViewModel = viewModel<AppInfoScreenVie
         LoginDialog(viewModel) { showLogInDialog = false }
     }
 
-    DebugRevenueCatBottomSheet(
-        onPurchaseCompleted = { isDebugBottomSheetVisible = false },
-        onPurchaseErrored = { Log.e("PaywallTester", "Error purchasing through debug view: $it") },
-        isVisible = isDebugBottomSheetVisible,
-        onDismissCallback = { isDebugBottomSheetVisible = false },
-    )
+//    DebugRevenueCatBottomSheet(
+//        onPurchaseCompleted = { isDebugBottomSheetVisible = false },
+//        onPurchaseErrored = { Log.e("PaywallTester", "Error purchasing through debug view: $it") },
+//        isVisible = isDebugBottomSheetVisible,
+//        onDismissCallback = { isDebugBottomSheetVisible = false },
+//    )
 }
 
 @Composable

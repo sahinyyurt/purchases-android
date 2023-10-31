@@ -1,6 +1,6 @@
 plugins {
     alias libs.plugins.android.application
-    alias libs.plugins.kotlin.android
+    alias libs.plugins.kotlin.revenuecatui.android
 }
 
 apply from: "$rootProject.projectDir/base-application.gradle"
@@ -30,7 +30,7 @@ android {
     }
 
     composeOptions {
-        kotlinCompilerExtensionVersion '1.4.0-alpha02'
+        kotlinCompilerExtensionVersion '1.5.3'
     }
 
     buildFeatures {
@@ -52,6 +52,6 @@ dependencies {
     implementation project(path: ':ui:debugview')
 
     implementation(platform(libs.kotlin.bom))
-    implementation platform(libs.compose.bom)
+    implementation platform(libs.compose.revenuecatui.bom)
     implementation libs.compose.ui
 }

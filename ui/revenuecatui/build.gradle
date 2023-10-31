@@ -1,10 +1,9 @@
 plugins {
     alias libs.plugins.android.library
-    alias libs.plugins.kotlin.android
-    alias libs.plugins.kotlin.serialization
-    alias libs.plugins.kotlin.parcelize
+    alias libs.plugins.kotlin.revenuecatui.android
+    alias libs.plugins.kotlin.revenuecatui.serialization
+    alias libs.plugins.kotlin.revenuecatui.parcelize
 }
-
 
 if (!project.getProperties()["ANDROID_VARIANT_TO_PUBLISH"].contains("customEntitlementComputation")) {
     apply plugin: "com.vanniktech.maven.publish"
@@ -33,7 +32,7 @@ android {
         compose true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion '1.4.0-alpha02'
+        kotlinCompilerExtensionVersion '1.5.3'
     }
     packaging {
         resources {
@@ -45,9 +44,9 @@ android {
 dependencies {
     implementation project(path: ':purchases')
 
-    implementation(platform(libs.kotlin.bom))
+    implementation(platform(libs.kotlin.revenuecatui.bom))
     implementation libs.androidx.core
-    implementation platform(libs.compose.bom)
+    implementation platform(libs.compose.revenuecatui.bom)
     implementation libs.compose.ui
     implementation libs.compose.ui.util
     implementation libs.compose.ui.graphics
