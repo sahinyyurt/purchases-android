@@ -152,7 +152,7 @@ internal class PaywallViewModelImpl(
                 if (!selectedPackage.currentlySubscribed) {
                     purchasePackage(activity, selectedPackage.rcPackage)
                 } else {
-                    Logger.d("Ignoring purchase request for already subscribed package")
+                    Logger.d("Ignoring purchase request for already purchased package")
                 }
             }
 
@@ -278,10 +278,12 @@ internal class PaywallViewModelImpl(
             Logger.w(PaywallValidationErrorStrings.DISPLAYING_DEFAULT)
         }
 
+        // TODO: Josh fix here
         return offering.toPaywallState(
             variableDataProvider = variableDataProvider,
             activelySubscribedProductIdentifiers = customerInfo.activeSubscriptions,
             nonSubscriptionProductIdentifiers = customerInfo.nonSubscriptionTransactions
+                .filter { !it.shouldConsume }
                 .map { it.productIdentifier }
                 .toSet(),
             mode = mode,
